@@ -1,0 +1,158 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+local Window = Rayfield:CreateWindow({
+   Name = "ðŸ”« MetaHub MM2 ðŸ”ª",
+   LoadingTitle = "MetaHub",
+   LoadingSubtitle = "by Xempis",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "MetaHubScriptConfig"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "mPkgQn8SFj", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+
+local MainTab = Window:CreateTab("ðŸ  Main", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("ðŸ”« Dupe ðŸ”ª")
+
+
+Rayfield:Notify({
+   Title = "Script Executed Successfully âœ…",
+   Content = "Give Script a Few Minutes to Load ðŸ”ƒ",
+   Duration = 8.5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Got it! âœ”",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+
+local Input = Tab:CreateInput({
+   Name = "Insert Knife Name ðŸ”ª",
+   PlaceholderText = "Knife",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   -- The function that takes place when the input is changed
+   -- The variable (Text) is a string for the value in the text box
+   end,
+})
+
+
+local Button = MainTab:CreateButton({
+   Name = "ðŸ”ª Dupe Knives ðŸ”ª",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+
+Rayfield:Notify({
+   Title = "âœ… Dupe Activated âœ…",
+   Content = "ðŸ‘ Wait 3-4 Minutes For the Dupe to FinishðŸ‘",
+   Duration = 8.5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Got it!âœ”",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+
+local Input = Tab:CreateInput({
+   Name = "Insert Gun Name ðŸ”«",
+   PlaceholderText = "Gun",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   -- The function that takes place when the input is changed
+   -- The variable (Text) is a string for the value in the text box
+   end,
+})
+
+
+local Button = Tab:CreateButton({
+   Name = "ðŸ”« Dupe Guns ðŸ”«",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+
+Rayfield:Notify({
+   Title = "âœ… Dupe Activated âœ…",
+   Content = "ðŸ‘ Wait 3-4 Minutes For the Dupe to FinishðŸ‘",
+   Duration = 8.5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Got it!âœ”",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+
+
+
+local MiscTab = Window:CreateTab("ðŸ§© Miscellaneous", nil) -- Title, Image
+local Section = MiscTab:CreateSection("ðŸ“ƒ Game Options ðŸ“ƒ")
+
+
+local Slider = MiscTab:CreateSlider({
+   Name = "ðŸš¶â€â™‚ï¸ WalkSpeed ðŸš¶â€â™‚ï¸",
+   Range = {16, 50},
+   Increment = 1,
+   Suffix = "âš¡ Speed âš¡",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+
+local Toggle = MiscTab:CreateToggle({
+   Name = "ðŸ¦˜ Infinite Jump ðŸ¦˜",
+   CurrentValue = false,
+   Flag = "ToggleInfJump", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+local Toggle = MiscTab:CreateToggle({
+   Name = "ðŸ¦´ ESP ðŸ¦´",
+   CurrentValue = false,
+   Flag = "ToggleChams", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/Releases/main/MurderMystery2HighlightESP"))(' Watermelon ?')
+   end,
+})
